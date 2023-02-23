@@ -18,3 +18,7 @@ body {
     min-height: 100vh;
     background-color: #fff8;
 }
+
+.hide {
+    display: none;
+}
