@@ -61,6 +61,51 @@ header {
     width: 30px;
 }
 
+.current,
+.units {
+    position: fixed;
+}
+
+.current {
+    top: 40px;
+    left: 60px;
+}
+
+.units {
+    top: 10px;
+    left: 10px;
+}
+
+.current {
+    text-align: center;
+}
+
+.current > :not(:last-child) {
+    margin-bottom: 6px;
+}
+
+.weather {
+    font-size: 1.6rem;
+}
+
+.temp {
+    font-size: 2.2rem;
+}
+
+.city {
+    font-size: 1.2rem;
+}
+
+.time {
+    font-size: 1rem;
+}
+
+.units {
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
 .hide {
     display: none;
 }
