@@ -11,6 +11,37 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
+        <div class="container">
+            <header>
+                <div class="title">
+                    <h1>Weather watcher</h1>
+                    <img src="./images/eye.png" alt="eye" />
+                </div>
+                <div class="searchbox">
+                    <form>
+                        <input
+                            type="text"
+                            class="search"
+                            placeholder="search location"
+                        />
+                    </form>
+                    <img
+                        src="./images/search.png"
+                        alt="magnifying glass"
+                    />
+                </div>
+            </header>
+            <main>
+                <div class="current"></div>
+                <div class="units"></div>
+                <div class="hours-container">
+                    <div class="hours"></div>
+                    <div class="controls"></div>
+                </div>
+                <div class="days"></div>
+            </main>
+        </div>
+
         <script src="main.js"></script>
     </body>
 </html>

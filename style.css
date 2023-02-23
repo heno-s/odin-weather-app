@@ -9,3 +9,12 @@
 html {
     font-family: sans-serif;
 }
+
+body {
+    background: url(./images/mist.jpg) center / cover;
+}
+
+.container {
+    min-height: 100vh;
+    background-color: #fff8;
+}
