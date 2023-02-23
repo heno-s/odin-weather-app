@@ -1,0 +1,21 @@
+{
+    "name": "odin-weather",
+    "version": "1.0.0",
+    "description": "This project is the assignment from [The Odin Project](https://theodinproject.com) to train asynchronous js and working with APIs.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack",
+        "watch": "webpack --watch"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "eslint": "^8.34.0",
+        "eslint-config-prettier": "^8.6.0",
+        "eslint-config-standard": "^17.0.0",
+        "webpack": "^5.75.0",
+        "webpack-cli": "^5.0.1"
+    }
+}
