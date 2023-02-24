@@ -186,6 +186,10 @@ header {
     justify-self: end;
 }
 
+.day-icon {
+    width: 50px;
+}
+
 .hide {
     display: none;
 }
