@@ -24,6 +24,7 @@ header {
     flex-direction: column;
     gap: 30px;
     align-items: center;
+    margin-bottom: 120px;
 }
 
 .title {
@@ -104,6 +105,28 @@ header {
     cursor: pointer;
     font-size: 2rem;
     font-weight: bold;
+}
+
+.hours > * {
+    display: contents;
+}
+
+.hours {
+    display: flex;
+    justify-content: center;
+    padding: 0 60px;
+}
+
+.hour {
+    padding: 20px 50px;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hour:not(:last-child) {
+    border-right: 2px solid;
 }
 
 .hide {
