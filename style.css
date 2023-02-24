@@ -25,7 +25,7 @@ header {
     flex-direction: column;
     gap: 30px;
     align-items: center;
-    margin-bottom: 120px;
+    margin-bottom: 80px;
 }
 
 .title {
@@ -108,6 +108,10 @@ header {
     font-weight: bold;
 }
 
+.hours-container {
+    margin-bottom: 80px;
+}
+
 .hours > * {
     display: contents;
 }
@@ -116,7 +120,7 @@ header {
     display: flex;
     justify-content: center;
     padding: 0 40px;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
 }
 
 .hour {
@@ -129,6 +133,33 @@ header {
 
 .hour:not(:last-child) {
     border-right: 2px solid;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.arrow {
+    cursor: pointer;
+}
+
+.arrow path {
+    fill: #3a3a3a;
+}
+
+.dots {
+    display: flex;
+    gap: 5px;
+}
+
+.dot {
+    height: 12px;
+    border-radius: 50%;
+    background-color: #565656;
+    aspect-ratio: 1;
 }
 
 .days {
