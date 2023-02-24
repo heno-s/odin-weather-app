@@ -120,15 +120,30 @@ header {
 }
 
 .hour {
-    padding: 20px 50px;
+    padding: 20px 30px;
     font-size: 1.5rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 20px;
 }
 
 .hour:not(:last-child) {
     border-right: 2px solid;
+}
+
+.hour-icon {
+    width: 60px;
+}
+
+.hour-temp {
+    display: flex;
+    align-items: center;
+}
+
+.hour-temp-icon {
+    aspect-ratio: 1;
+    height: 50px;
 }
 
 .controls {
