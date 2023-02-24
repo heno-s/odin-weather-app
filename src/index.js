@@ -3,10 +3,27 @@ import {
     createHourElement,
 } from "./elementsFactory";
 
-import { getCoords, getWeatherData } from "./API";
+import UI from "./UI";
+
+const controls = document.querySelector(".controls");
+
+controls.addEventListener("click", (evt) => {
+    const t = evt.target;
+
+    if (t.closest(".left-arrow")) {
+        UI.displayPreviousHours();
+    } else if (t.closest(".right-arrow")) {
+        console.log("HERE");
+        UI.displayNextHours();
+    } else if (t.closest(".dot")) {
+        UI.displayHours(+t.dataset.index);
+    }
+});
 
 for (let i = 0; i < 3; i++) {
-    const hours = document.getElementById(`hours-${i}`);
+    const hours = document.querySelector(
+        `.hours > [data-index="${i}"]`
+    );
     for (let j = 0; j < 7; j++) {
         hours.appendChild(
             createHourElement({

@@ -109,6 +109,10 @@ header {
 }
 
 .hours > * {
+    display: none;
+}
+
+.hours > *.active {
     display: contents;
 }
 
@@ -167,11 +171,21 @@ header {
 }
 
 .dot {
+    display: grid;
+    place-items: center;
     cursor: pointer;
     height: 12px;
     border-radius: 50%;
     background-color: #565656;
     aspect-ratio: 1;
+}
+
+.dot.active::before {
+    content: "";
+    height: 50%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: #fff;
 }
 
 .days {
@@ -205,8 +219,4 @@ header {
 
 .day-icon {
     width: 50px;
-}
-
-.hide {
-    display: none;
 }

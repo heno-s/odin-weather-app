@@ -49,9 +49,9 @@
                 <div class="units"><span id="unit">°F</span></div>
                 <div class="hours-container">
                     <div class="hours">
-                        <div id="hours-0"></div>
-                        <div id="hours-1" class="hide"></div>
-                        <div id="hours-2" class="hide"></div>
+                        <div data-index="0" class="active"></div>
+                        <div data-index="1"></div>
+                        <div data-index="2"></div>
                     </div>
                     <div class="controls">
                         <div class="arrow left-arrow">
@@ -68,9 +68,12 @@
                             </svg>
                         </div>
                         <div class="dots">
-                            <div class="dot" data-for="hours-0"></div>
-                            <div class="dot" data-for="hours-1"></div>
-                            <div class="dot" data-for="hours-2"></div>
+                            <div
+                                class="dot active"
+                                data-index="0"
+                            ></div>
+                            <div class="dot" data-index="1"></div>
+                            <div class="dot" data-index="2"></div>
                         </div>
                         <div class="arrow right-arrow">
                             <svg
