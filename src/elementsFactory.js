@@ -1,7 +1,7 @@
 import { getWeatherIcon } from "./utils.js";
 
 export function createHourElement(data) {
-    const { dateTime, iconCode, degree } =
+    const { dateTime, iconCode, temp } =
         data === undefined ? {} : data;
     const date = new Date(dateTime * 1000);
     const time = `${(date.getHours() + "").padStart(2, "0")}:${(
@@ -31,9 +31,40 @@ export function createHourElement(data) {
             </svg>
         </div>
         <div class="hour-temp-number">
-            ${data ? degree + "°C" : "----"}
+            ${data ? temp + "°C" : "----"}
         </div>
     </div>`;
 
     return hour;
+}
+
+export function createDayElement(data) {
+    const { dateTime, iconCode, minTemp, maxTemp } =
+        data === undefined ? {} : data;
+    const day = document.createElement("div");
+    day.classList.add("day");
+    const days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+    ];
+    const dayName = days[new Date(dateTime * 1000).getDay()];
+
+    day.innerHTML = `<div class="day-icon">
+    ${data ? getWeatherIcon(iconCode) : getWeatherIcon("01d")}
+</div>
+<div class="day-temp">
+    <span class="day-max">${data ? maxTemp : "--"}</span>/<span
+        class="day-min"
+        >${data ? minTemp : "--"}</span
+    >
+    <span class="day-temp-unit">°C</span>
+</div>
+<div class="day-name">${data ? dayName : "----"}</div>`;
+
+    return day;
 }
