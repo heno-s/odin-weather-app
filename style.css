@@ -133,7 +133,29 @@ header {
 
 .days {
     display: flex;
-    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 20px;
+    overflow-x: auto;
+}
+
+.day {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    height: 120px;
+    aspect-ratio: 1.5;
+    background-color: #74aece66;
+    padding: 8px 16px;
+}
+
+.day-name {
+    grid-column: span 2;
+}
+
+.day-temp {
+    justify-self: end;
 }
 
 .hide {
