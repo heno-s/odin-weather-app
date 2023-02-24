@@ -17,6 +17,7 @@ body {
 .container {
     min-height: 100vh;
     background-color: #fff8;
+    padding: 10px 20px;
 }
 
 header {
@@ -114,7 +115,8 @@ header {
 .hours {
     display: flex;
     justify-content: center;
-    padding: 0 60px;
+    padding: 0 40px;
+    margin-bottom: 100px;
 }
 
 .hour {
@@ -127,6 +129,11 @@ header {
 
 .hour:not(:last-child) {
     border-right: 2px solid;
+}
+
+.days {
+    display: flex;
+    gap: 30px;
 }
 
 .hide {
