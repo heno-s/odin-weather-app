@@ -2,9 +2,18 @@ import {
     createCurrentElement,
     createDayElement,
     createHourElement,
+    createUnitsElement,
 } from "./elementsFactory";
 
 export default class UI {
+    static replaceUnitsSymbol(units) {
+        const unitsDOM = document.querySelector(".units");
+        unitsDOM.innerHTML = ""; // clear current units
+
+        const innerUnitsDOM = createUnitsElement(units);
+        unitsDOM.appendChild(innerUnitsDOM);
+    }
+
     static loadCurrent(currentForecast) {
         clear();
 

@@ -1,3 +1,4 @@
+import Storage from "./Storage";
 import { getWeatherIcon } from "./utils.js";
 
 export function createHourElement(data) {
@@ -31,7 +32,9 @@ export function createHourElement(data) {
             </svg>
         </div>
         <div class="hour-temp-number">
-            ${data ? Math.round(temp * 10) / 10 + "°C" : "----"}
+            ${data ? Math.round(temp * 10) / 10 : "----"}${
+        Storage.get("units") === "metric" ? "°C" : "°F"
+    }
         </div>
     </div>`;
 
@@ -63,8 +66,9 @@ export function createDayElement(data) {
     }</span>/<span
         class="day-min"
         >${data ? Math.round(minTemp) : "--"}</span
-    >
-    <span class="day-temp-unit">°C</span>
+    ><span class="day-temp-unit">${
+        Storage.get("units") === "metric" ? "°C" : "°F"
+    }</span>
 </div>
 <div class="day-name">${data ? dayName : "----"}</div>`;
 
@@ -78,11 +82,27 @@ export function createCurrentElement(data) {
     current.innerHTML = `<div class="weather">${
         data ? weather : "--"
     }</div>
-  <div class="temp">${data ? Math.round(temp) : "--"}°C</div>
+  <div class="temp">${data ? Math.round(temp * 10) / 10 : "--"}${
+        Storage.get("units") === "metric" ? "°C" : "°F"
+    }</div>
   <div>
       <div class="city">${data ? city : "--"}</div>
       
   </div>`;
     // <div class="time">10:00 (18:00)</div> // under city, maybe will not implement, leave it for later
     return current;
+}
+
+export function createUnitsElement(units) {
+    const unitsDOM = document.createElement("span");
+    unitsDOM.id = "unit";
+    unitsDOM.dataset.units = units;
+
+    if (units === "metric") {
+        unitsDOM.textContent = "°C";
+    } else {
+        unitsDOM.textContent = "°F";
+    }
+
+    return unitsDOM;
 }

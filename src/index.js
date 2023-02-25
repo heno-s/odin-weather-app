@@ -4,10 +4,29 @@ import {
 } from "./elementsFactory";
 
 import { getCoords, getWeatherData } from "./API";
+import Storage from "./Storage";
 import UI from "./UI";
 
 const searchForm = document.forms["search-form"];
 const controls = document.querySelector(".controls");
+const units = document.querySelector(".units");
+
+units.addEventListener("click", async (evt) => {
+    const city = document.querySelector(".city").textContent;
+    const units = evt.target.dataset.units;
+    const coordinates = await getCoords(city);
+    const forecast = await getWeatherData(coordinates, units);
+    Storage.set("units", units);
+    forecast.current.city = city;
+    UI.loadCurrent(forecast.current);
+    UI.loadHourly(forecast.hourly);
+    UI.loadDaily(forecast.daily);
+    if (units === "metric") {
+        UI.replaceUnitsSymbol("imperial");
+    } else {
+        UI.replaceUnitsSymbol("metric");
+    }
+});
 
 searchForm.addEventListener("submit", async (evt) => {
     evt.preventDefault();
@@ -60,10 +79,3 @@ for (let i = 0; i < 7; i++) {
         })
     );
 }
-
-// getCoords("Sereď")
-//     .then(async (coords) => {
-//         const data = await getWeatherData(coords, "standard");
-//         console.log(data);
-//     })
-//     .catch(console.log);
