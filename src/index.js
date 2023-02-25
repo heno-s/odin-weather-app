@@ -43,7 +43,7 @@ for (let i = 0; i < 3; i++) {
             createHourElement({
                 dateTime: 1646316000,
                 iconCode: "50n",
-                temp: 13,
+                temp: 13.68,
             })
         );
     }
@@ -55,8 +55,8 @@ for (let i = 0; i < 7; i++) {
         createDayElement({
             dateTime: 1646316000,
             iconCode: "10d",
-            minTemp: -10,
-            maxTemp: 20,
+            minTemp: -10.555,
+            maxTemp: 20.738,
         })
     );
 }

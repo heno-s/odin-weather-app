@@ -31,7 +31,7 @@ export function createHourElement(data) {
             </svg>
         </div>
         <div class="hour-temp-number">
-            ${data ? temp + "°C" : "----"}
+            ${data ? Math.round(temp * 10) / 10 + "°C" : "----"}
         </div>
     </div>`;
 
@@ -58,9 +58,11 @@ export function createDayElement(data) {
     ${data ? getWeatherIcon(iconCode) : getWeatherIcon("01d")}
 </div>
 <div class="day-temp">
-    <span class="day-max">${data ? maxTemp : "--"}</span>/<span
+    <span class="day-max">${
+        data ? Math.round(maxTemp) : "--"
+    }</span>/<span
         class="day-min"
-        >${data ? minTemp : "--"}</span
+        >${data ? Math.round(minTemp) : "--"}</span
     >
     <span class="day-temp-unit">°C</span>
 </div>
@@ -76,7 +78,7 @@ export function createCurrentElement(data) {
     current.innerHTML = `<div class="weather">${
         data ? weather : "--"
     }</div>
-  <div class="temp">${data ? temp : "--"}°C</div>
+  <div class="temp">${data ? Math.round(temp) : "--"}°C</div>
   <div>
       <div class="city">${data ? city : "--"}</div>
       
