@@ -13,9 +13,7 @@ searchForm.addEventListener("submit", async (evt) => {
     evt.preventDefault();
     const city = searchForm.city.value.trim();
     const coordinates = await getCoords(city);
-    console.log(coordinates);
     const forecast = await getWeatherData(coordinates);
-    console.log(forecast);
     forecast.current.city = city; // needs to show city in current element
     UI.loadCurrent(forecast.current);
     UI.loadHourly(forecast.hourly);

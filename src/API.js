@@ -1,6 +1,6 @@
 export async function getCoords(city) {
     const response = await fetch(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=81f0249eaacd160a330d176c5bc3d55f`
+        `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=81f0249eaacd160a330d176c5bc3d55f`
     );
 
     const responseJSON = await response.json();
