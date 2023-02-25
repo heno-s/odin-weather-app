@@ -68,3 +68,19 @@ export function createDayElement(data) {
 
     return day;
 }
+
+export function createCurrentElement(data) {
+    const { temp, city, weather } = data === undefined ? {} : data;
+    const current = document.createElement("div");
+    current.classList.add("current");
+    current.innerHTML = `<div class="weather">${
+        data ? weather : "--"
+    }</div>
+  <div class="temp">${data ? temp : "--"}°C</div>
+  <div>
+      <div class="city">${data ? city : "--"}</div>
+      
+  </div>`;
+    // <div class="time">10:00 (18:00)</div> // under city, maybe will not implement, leave it for later
+    return current;
+}

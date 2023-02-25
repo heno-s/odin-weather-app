@@ -1,10 +1,25 @@
 import {
+    createCurrentElement,
     createDayElement,
     createHourElement,
 } from "./elementsFactory";
 
 export default class UI {
-    static loadCurrent(currentForecast) {}
+    static loadCurrent(currentForecast) {
+        clear();
+
+        const currentData = {};
+        currentData.temp = currentForecast.temp;
+        currentData.city = currentForecast.city;
+        currentData.weather = currentForecast.weather[0].main;
+        const current = createCurrentElement(currentData);
+        document.querySelector("main").prepend(current);
+
+        function clear() {
+            const current = document.querySelector(".current");
+            current.remove();
+        }
+    }
 
     static loadHourly(hourlyForecast) {
         clear();

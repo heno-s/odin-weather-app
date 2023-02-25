@@ -16,9 +16,11 @@ searchForm.addEventListener("submit", async (evt) => {
     console.log(coordinates);
     const forecast = await getWeatherData(coordinates);
     console.log(forecast);
+    forecast.current.city = city; // needs to show city in current element
     UI.loadCurrent(forecast.current);
     UI.loadHourly(forecast.hourly);
     UI.loadDaily(forecast.daily);
+    searchForm.reset();
 });
 
 controls.addEventListener("click", (evt) => {
