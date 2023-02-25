@@ -3,9 +3,23 @@ import {
     createHourElement,
 } from "./elementsFactory";
 
+import { getCoords, getWeatherData } from "./API";
 import UI from "./UI";
 
+const searchForm = document.forms["search-form"];
 const controls = document.querySelector(".controls");
+
+searchForm.addEventListener("submit", async (evt) => {
+    evt.preventDefault();
+    const city = searchForm.city.value.trim();
+    const coordinates = await getCoords(city);
+    console.log(coordinates);
+    const forecast = await getWeatherData(coordinates);
+    console.log(forecast);
+    UI.loadCurrent(forecast.current);
+    UI.loadHourly(forecast.hourly);
+    UI.loadDaily(forecast.daily);
+});
 
 controls.addEventListener("click", (evt) => {
     const t = evt.target;
@@ -24,7 +38,7 @@ for (let i = 0; i < 3; i++) {
     const hours = document.querySelector(
         `.hours > [data-index="${i}"]`
     );
-    for (let j = 0; j < 7; j++) {
+    for (let j = 0; j < 8; j++) {
         hours.appendChild(
             createHourElement({
                 dateTime: 1646316000,
